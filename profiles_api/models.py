@@ -1,4 +1,3 @@
-from typing_extensions import TypeGuard
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
@@ -28,12 +27,9 @@ class UserProfileManager(BaseUserManager):
 
             user.is_superuser = True
             user.is_staff = True
-            user.save(usin=self._db)
+            user.save(using=self._db)
 
             return user
-
-
-
 
 
 class UserProfile(AbstractBaseUser, PermissionsMixin):
